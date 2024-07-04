@@ -37,7 +37,7 @@ def create_producto():
     nombre=request.json['nombre']
     precio=request.json['precio']
     stock=request.json['stock']
-    tipo=tipo.json['tipo']
+    tipo=request.json['tipo']
     imagen=request.json['imagen']
     new_producto=Producto(nombre,precio,stock,imagen,tipo)
     db.session.add(new_producto)
