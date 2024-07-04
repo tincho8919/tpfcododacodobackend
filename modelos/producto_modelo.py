@@ -1,5 +1,5 @@
 from app import app, db   #,ma
-from sqlalchemy import Column, ForeignKey, Integer, Table
+from sqlalchemy import Column, ForeignKey, Integer, Table , String
 from sqlalchemy.orm import declarative_base, relationship
 
 # defino las tablas
