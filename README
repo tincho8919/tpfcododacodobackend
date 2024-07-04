@@ -39,3 +39,15 @@ SQLAlchemy             2.0.31
 typing_extensions      4.12.2
 virtualenv             20.26.3
 Werkzeug               3.0.3
+
+
+-Detalles:El trabajo Final es essencial cumple con los requisitos del crud y base de datos,
+tiene dos bases de datos usuaio y producto
+el usuario administrador puede ver el crud y agregar , modificar y borrar datos
+-usuario:administra
+-clave:administra
+sale por defaul
+-todo carga en base de datos que esta en deploy en https://www.pythonanywhere.com/
+el backend esta en linea y se comunica bien con el frontend que tambien esta online
+
+cumple con los requisitos esseciales
