@@ -6,7 +6,7 @@ from modelos.producto_modelo import *
 
 class ProductoSchema(ma.Schema):
     class Meta:
-        fields=('id','nombre','precio','stock','imagen')
+        fields=('id','nombre','precio','stock','imagen','tipo')
 
 producto_schema=ProductoSchema()            # El objeto producto_schema es para traer un producto
 productos_schema=ProductoSchema(many=True)  # El objeto productos_schema es para traer multiples registros de producto
@@ -37,8 +37,9 @@ def create_producto():
     nombre=request.json['nombre']
     precio=request.json['precio']
     stock=request.json['stock']
+    tipo=tipo.json['tipo']
     imagen=request.json['imagen']
-    new_producto=Producto(nombre,precio,stock,imagen)
+    new_producto=Producto(nombre,precio,stock,imagen,tipo)
     db.session.add(new_producto)
     db.session.commit()
     return producto_schema.jsonify(new_producto)
@@ -50,6 +51,7 @@ def update_producto(id):
     producto.nombre=request.json['nombre']
     producto.precio=request.json['precio']
     producto.stock=request.json['stock']
+    producto.tipo=request.json['tipo']
     producto.imagen=request.json['imagen']
 
     db.session.commit()
