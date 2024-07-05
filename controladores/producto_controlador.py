@@ -1,4 +1,3 @@
-
 from flask import  jsonify,request  #,Flask# del modulo flask importar la clase Flask y los métodos jsonify,request
 
 from app import app, db,ma
@@ -6,7 +5,7 @@ from modelos.producto_modelo import *
 
 class ProductoSchema(ma.Schema):
     class Meta:
-        fields=('id','nombre','precio','stock','imagen','tipo')
+        fields=('id','nombre','precio','stock','imagen')
 
 producto_schema=ProductoSchema()            # El objeto producto_schema es para traer un producto
 productos_schema=ProductoSchema(many=True)  # El objeto productos_schema es para traer multiples registros de producto
@@ -37,9 +36,8 @@ def create_producto():
     nombre=request.json['nombre']
     precio=request.json['precio']
     stock=request.json['stock']
-    tipo=request.json['tipo']
     imagen=request.json['imagen']
-    new_producto=Producto(nombre,precio,stock,imagen,tipo)
+    new_producto=Producto(nombre,precio,stock,imagen)
     db.session.add(new_producto)
     db.session.commit()
     return producto_schema.jsonify(new_producto)
@@ -51,7 +49,6 @@ def update_producto(id):
     producto.nombre=request.json['nombre']
     producto.precio=request.json['precio']
     producto.stock=request.json['stock']
-    producto.tipo=request.json['tipo']
     producto.imagen=request.json['imagen']
 
     db.session.commit()
@@ -59,5 +56,5 @@ def update_producto(id):
 
 @app.route('/')
 def bienvenida():
-    return "Bienvenidos a mi backend"   # retorna el JSON de un usuario recibido como parametro
+    return "Bienvenidos al backend" 
 
